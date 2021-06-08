@@ -13,6 +13,12 @@
 $ npm install
 ```
 
+## Create env config
+```bash
+PORT={port}
+LINE_TOKEN={token}
+```
+
 ## Running the app
 
 ```bash

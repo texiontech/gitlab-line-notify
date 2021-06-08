@@ -6,14 +6,23 @@ import * as helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: process.env.CORS_ALLOW_LIST,
-    credentials: true,
-  });
-  app.setGlobalPrefix(`/${process.env.VERSION}/api`)
+  app.setGlobalPrefix(`/webhook`)
   app.use(helmet());
-  app.useGlobalPipes(new ValidationPipe());
   app.use(json({ limit: '10mb' }))
-  await app.listen(3000);
+  const port = process.env.PORT
+  await app.listen(port, () => {
+    console.log(`
+    /$$$$$$$$ /$$$$$$$$ /$$   /$$ /$$$$$$  /$$$$$$  /$$   /$$
+    |__  $$__/| $$_____/| $$  /$$|_  $$_/ /$$__  $$| $$$ | $$
+       | $$   | $$      |  $$/$$/  | $$  | $$   \ $$| $$$$| $$
+       | $$   | $$$$$    \  $$$$/   | $$  | $$  | $$| $$ $$ $$
+       | $$   | $$__/     /$$ $$   | $$  | $$   |$$| $$   $$$
+       | $$   | $$       /$$ /\ $$  | $$  | $$  | $$| $$ \  $$$
+       | $$   | $$$$$$$$|$$ / \ $$ /$$$$$$|  $$$$$$/| $$ \  $$$
+       |__/   |________/|__/  |__/|______/ \______/ |__/  \__/
+
+    `)
+    console.log(`Service running on port: ${port}`)
+  });
 }
 bootstrap();
