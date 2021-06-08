@@ -15,6 +15,9 @@ $ npm install
 
 ## Create env config
 ```bash
+cp .env.example .env
+
+#then update this config variable
 PORT={port}
 LINE_TOKEN={token}
 ```
