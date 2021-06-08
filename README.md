@@ -47,7 +47,7 @@ $ npm run test:cov
 ## Stay in touch
 
 - Website - [https://texion.co.th](https://texion.co.th/)
-- Twitter - [@nestframework](https://twitter.com/yotehub)
+- Twitter - [@LeakHand](https://twitter.com/LeakHand)
 
 ## License
 
